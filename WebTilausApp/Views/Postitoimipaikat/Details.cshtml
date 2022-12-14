@@ -1,0 +1,33 @@
+﻿@model WebTilausApp.Models.Postitoimipaikat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Tiedot</h2>
+
+<div>
+    <h4>Postitoimipaikat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Postitoimipaikka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postitoimipaikka)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Postinumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postinumero)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.Postinumero }) |
+    @Html.ActionLink("Takaisin", "Index")
+</p>

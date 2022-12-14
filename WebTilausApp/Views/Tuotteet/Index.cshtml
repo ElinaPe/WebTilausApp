@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebTilausApp.Models.Tuotteet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Luo uusi", "Create")
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nimi)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Ahinta)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Kuvalinkki)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ahinta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kuvalinkki)
+    </td>
+    <td>
+        @Html.ActionLink("Muokkaa", "Edit", new { id = item.TuoteID }) |
+        @Html.ActionLink("Tiedot", "Details", new { id = item.TuoteID }) |
+        @Html.ActionLink("Poista", "Delete", new { id = item.TuoteID })
+    </td>
+    </tr>
+}
+    </tbody>
+
+</table>
+<script>
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+        const table = th.closest('table');
+        const tbody = table.querySelector('tbody');
+        Array.from(tbody.querySelectorAll('tr'))
+            .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+            .forEach(tr => tbody.appendChild(tr));
+    })));
+</script>

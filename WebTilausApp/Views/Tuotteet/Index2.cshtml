@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<div class="container-fluid">
+
+    <h2>Tuotteet</h2>
+    <p>
+        @Html.ActionLink("Luo uusi", "Create")
+    </p>
+    <div class="row">
+        @foreach (WebTilausApp.Models.Tuotteet tuote in Model)
+        {
+            <div class="col-lg-3">
+                <div class="card mb-3">
+                    <h3 class="card-header">@tuote.Nimi</h3>
+                    <img style="height:200px; width:100%; display: block;" src="@tuote.Kuvalinkki">
+                    <div class="card-body">
+                        <p class="card-text">@tuote.Ahinta€</p>
+                        @Html.ActionLink("Muokkaa", "Edit", new { id = tuote.TuoteID })
+                        @Html.ActionLink("Poista", "Delete", new { id = tuote.TuoteID })
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
