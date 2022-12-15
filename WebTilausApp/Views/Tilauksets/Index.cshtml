@@ -4,12 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<h2>Tilaukset</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Takaisin", "Index", "Home") @Html.ActionLink("Luo uusi", "Create")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Toimitusosoite)
@@ -47,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postitoimipaikka)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TilausID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TilausID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TilausID })
+            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TilausID }) |
+            @Html.ActionLink("Tiedot", "Details", new { id=item.TilausID }) |
+            @Html.ActionLink("Poista", "Delete", new { id=item.TilausID })
         </td>
     </tr>
 }

@@ -41,6 +41,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(tilausrivit);
         }
 
@@ -49,6 +50,7 @@ namespace WebTilausApp.Controllers
         {
             ViewBag.TilausID = new SelectList(db.Tilaukset, "TilausID", "Toimitusosoite");
             ViewBag.TuoteID = new SelectList(db.Tuotteet, "TuoteID", "Nimi");
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
 
@@ -85,6 +87,7 @@ namespace WebTilausApp.Controllers
             }
             ViewBag.TilausID = new SelectList(db.Tilaukset, "TilausID", "Toimitusosoite", tilausrivit.TilausID);
             ViewBag.TuoteID = new SelectList(db.Tuotteet, "TuoteID", "Nimi", tilausrivit.TuoteID);
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(tilausrivit);
         }
 
@@ -118,6 +121,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(tilausrivit);
         }
 

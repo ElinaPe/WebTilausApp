@@ -44,6 +44,7 @@ public ActionResult Index2()
 
         public ActionResult Create()
         {
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
 
@@ -65,6 +66,7 @@ public ActionResult Index2()
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Tuotteet tuote = db.Tuotteet.Find(id);
             if (tuote == null) return HttpNotFound();
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(tuote);
         }
 
@@ -85,6 +87,7 @@ public ActionResult Index2()
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Tuotteet tuote = db.Tuotteet.Find(id);
             if (tuote == null) return HttpNotFound();
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(tuote);
         }
 

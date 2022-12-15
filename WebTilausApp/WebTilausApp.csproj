@@ -291,6 +291,7 @@
     <Content Include="Views\Tilausrivits\Edit.cshtml" />
     <Content Include="Views\Tilausrivits\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

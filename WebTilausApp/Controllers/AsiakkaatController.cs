@@ -32,6 +32,7 @@ namespace WebTilausApp.Controllers
         {
             if (id == null)
             {
+                
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Asiakkaat asiakkaat = db.Asiakkaat.Find(id);
@@ -39,6 +40,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(asiakkaat);
         }
 
@@ -56,6 +58,7 @@ namespace WebTilausApp.Controllers
 
             ViewBag.Postinumero = new SelectList(selectPostiList, "Value", "Text");
             //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka");
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
 
@@ -97,7 +100,7 @@ namespace WebTilausApp.Controllers
                     Value = p.Postinumero.ToString(),
                     Text = p.Postinumero + " " + p.Postitoimipaikka.ToString()
                 };
-
+            ViewBag.LoggedStatus = Session["UserName"];
             ViewBag.Postinumero = new SelectList(selectPostiList, "Value", "Text", asiakkaat.Postinumero);
             //ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka", asiakkaat.Postinumero);
             return View(asiakkaat);
@@ -142,6 +145,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(asiakkaat);
         }
 

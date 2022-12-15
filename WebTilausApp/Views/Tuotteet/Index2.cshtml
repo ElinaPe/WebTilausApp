@@ -4,10 +4,10 @@
 }
 
 <div class="container-fluid">
-
+    <br />
     <h2>Tuotteet</h2>
     <p>
-        @Html.ActionLink("Luo uusi", "Create")
+        @Html.ActionLink("Takaisin", "Index", "Home")  @Html.ActionLink("Luo uusi", "Create")
     </p>
     <div class="row">
         @foreach (WebTilausApp.Models.Tuotteet tuote in Model)

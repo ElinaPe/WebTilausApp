@@ -25,15 +25,20 @@ namespace WebTilausApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            //ViewBag.Message = "Your application description page.";
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.LoggedStatus = Session["UserName"];
+            return View();
+        }
+        public ActionResult Map()
+        {
+            ViewBag.Message = "Sijainti";
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
         public ActionResult Login()

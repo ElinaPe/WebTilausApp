@@ -40,12 +40,14 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(postitoimipaikat);
         }
 
         // GET: Postitoimipaikat/Create
         public ActionResult Create()
         {
+            ViewBag.LoggedStatus = Session["UserName"];
             return View();
         }
 
@@ -62,7 +64,7 @@ namespace WebTilausApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(postitoimipaikat);
         }
 
@@ -78,6 +80,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(postitoimipaikat);
         }
 
@@ -109,6 +112,7 @@ namespace WebTilausApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LoggedStatus = Session["UserName"];
             return View(postitoimipaikat);
         }
 

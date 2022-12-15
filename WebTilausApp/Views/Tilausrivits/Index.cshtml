@@ -3,16 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+<br />
+<h2>Tilausrivit</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Takaisin", "Index", "Home") @Html.ActionLink("Luo uusi", "Create")
 </p>
 <table class="table table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Maara)
+            Määrä
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ahinta)
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Tuotteet.Nimi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TilausriviID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TilausriviID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TilausriviID })
+            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TilausriviID }) |
+            @Html.ActionLink("Tiedot", "Details", new { id=item.TilausriviID }) |
+            @Html.ActionLink("Poista", "Delete", new { id=item.TilausriviID })
         </td>
     </tr>
 }
